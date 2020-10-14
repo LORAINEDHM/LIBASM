@@ -25,6 +25,7 @@ HEADERDIR = .
 
 NAME =	libasm.a
 
+
 #	Compiler
 
 CC = gcc
