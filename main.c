@@ -48,11 +48,17 @@ int main()
 	// printf("\"testqsfndkjq\" : %ld\n", ft_strlen("testqsfndkjq"));
 	// printf("\"dfvsxwvwestqsfndkjq\" : %ld\n", ft_strlen("dfvsxwvwestqsfndkjq"));
 
-	printf("\n-- ft_strcpy --\n");
-	printf("before :\n\tsrc : %s, dest : %s\n", src, dest);
-	ret = ft_strcpy(dest, src);
-	printf("after :\n\tsrc : %s, dest : %s\nret : %s\n", src, dest, ret);
+	// printf("\n-- ft_strcpy --\n");
+	// printf("before :\n\tsrc : %s, dest : %s\n", src, dest);
+	// ret = ft_strcpy(dest, src);
+	// printf("after :\n\tsrc : %s, dest : %s\nret : %s\n", src, dest, ret);
     //printf("real strcpy = %s\n", strcpy("coucou", NULL));
+
+
+	printf("\n-- ft_strdup --\n");
+	//printf("before :\n\tsrc : %s, dest : %s\n", src, dest);
+	ret = ft_strdup(src);
+	printf("ret : %s\n", ret);
 
     return (0);
 }
