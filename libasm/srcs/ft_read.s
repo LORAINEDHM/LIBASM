@@ -14,8 +14,10 @@ _ft_read:
 				ret
 
 error:
-            	mov     r8, rax				; using temp to store the error value
+				push	rbx
+            	mov     rbx, rax			; using temp to store the error value
             	call    ___error			; to put the address location of errno into rax value
-            	mov     [rax], r8			; to put the error value (stored in r8) at this address location
-            	mov     rax, -1				; rax may return -1
+            	mov     [rax], rbx			; to put the error value (stored in rbx) at this address location
+            	pop		rbx
+				mov     rax, -1				; rax may return -1
             	ret
