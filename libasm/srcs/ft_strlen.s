@@ -2,7 +2,8 @@
 	global	_ft_strlen
 
 				section		.text
-_ft_strlen:		xor			rax, rax				; initialize rax
+_ft_strlen:
+				xor			rax, rax				; initialize rax
 
 loop_on_word:
 				cmp			byte [rdi + rax], 0		; compare if rdi[rax] == "\0" (rdi = 1st parameter)

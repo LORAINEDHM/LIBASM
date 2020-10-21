@@ -33,7 +33,7 @@ int main()
 
     char *src;
 	char *dest;
-	ssize_t ret;
+	int ret;
 	// int  fd;
 	// int  ret_read;
 	// int ret_ft_read;
@@ -60,9 +60,7 @@ int main()
 	//ret = ft_strdup(src);
 	//printf("ret : %s\n", ret);
 
-	ret = write(-1, "bonjour", 7);
-	printf("real ret = %zd\n", ret);
-	printf("ret = %zd\n", ft_write(-1, "bonjour", 0));
+	printf("ret = %d\n", ft_strcmp("bonjour", "onjour"));
 	//FT_WRITE_EXPECT_ERROR(42, "bonjour", 7);
 	//FT_WRITE_EXPECT_ERROR(9809, "bonjour", 7);
 	//FT_WRITE_EXPECT_ERROR(98123, "", 1);

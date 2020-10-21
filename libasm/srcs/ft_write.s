@@ -15,10 +15,11 @@ _ft_write:
 				ret
 
 error:
-				push	rbx
-            	mov     rbx, rax			; using temp to store the error value
-            	call    ___error			; to put the address location of errno into rax value
-            	mov     [rax], rbx			; to put the error value (stored in 58) at this address location
-            	pop		rbx
+				push	rax					; to get the error value back after cause we will put it at error address
+											; location returned by error function
+            	;mov     rbx, rax			; using temp to store the error value
+            	call    ___error			; returned the address location of error into rax value
+            	pop		rdx					; to get the error value back from the stack and store it into rdx
+				mov     [rax], rdx			; to put the error value (stored in rdx) at this address location
 				mov     rax, -1				; rax may return -1
             	ret
