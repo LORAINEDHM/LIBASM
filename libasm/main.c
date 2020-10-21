@@ -9,12 +9,11 @@
 
 int main()
 {
-    char *src;
-	char *dest;
-	int ret;
-	int  fd;
-	int  ret_read;
-	int ret_ft_read;
+    char	*src;
+	char	*dest;
+	int		ret;
+	int		fd;
+	char	*ret_str;
 
 	printf("\n\n   *************\n");
     printf("   * ft_strlen *\n");
@@ -175,74 +174,19 @@ tortor, sit amet consequat amet."));
 	printf("errno : %d\n", errno);
 	printf("------------------------------------------------------\n\n");
 
-
-
-
-	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
-	// fd = open("./Makefileqsdf", O_RDONLY);
-	// errno = 0;
-	// ret_read = read(fd, src, 18);
-	// close(fd);
-	// printf("read : %s, ret : %d, errno : %d\n", src, ret_read, errno);
-	// fd = open("./Makefileqsdf", O_RDONLY);
-	// errno = 0;
-	// ret_ft_read = ft_read(fd, dest, 18);
-	// close(fd);
-	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
-
-
-
-
-
 	printf("\n\n*************\n");
     printf("* ft_strdup *\n");
 	printf("*************\n\n");
 
+	printf("str = helloworld\n");
+	ret_str = strdup("helloworld");
+	printf("the expected ret: %s\n", ret_str);
+	free(ret_str);
+	ret_str = ft_strdup("helloworld");
+	printf("my function  ret: %s\n", ret_str);
+	free(ret_str);
+
+	printf("------------------------------------------------------\n\n");
+
     return (0);
 }
-
-
-// int	main(void)
-// {
-// 	char *src;
-// 	char *dest;
-// 	char *ret;
-// 	// int  fd;
-// 	// int  ret_read;
-// 	// int ret_ft_read;
-
-// 	src = "simon";
-// 	dest = malloc(19);
-
-
-// 	// printf("\n-- ft_read --\n");
-// 	// fd = open("./Makefile", O_RDONLY);
-// 	// errno = 0;
-// 	// ret_read = read(fd, src, 18);
-// 	// close(fd);
-// 	// printf("read : %s, ret : %d, errno : %d\n", src, ret_read, errno);
-// 	// fd = open("./Makefile", O_RDONLY);
-// 	// errno = 0;
-// 	// ret_ft_read = ft_read(fd, dest, 18);
-// 	// close(fd);
-// 	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
-// 	// fd = open("./Makefileqsdf", O_RDONLY);
-// 	// errno = 0;
-// 	// ret_read = read(fd, src, 18);
-// 	// close(fd);
-// 	// printf("read : %s, ret : %d, errno : %d\n", src, ret_read, errno);
-// 	// fd = open("./Makefileqsdf", O_RDONLY);
-// 	// errno = 0;
-// 	// ret_ft_read = ft_read(fd, dest, 18);
-// 	// close(fd);
-// 	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
-
-// 	// printf("\n-- ft_strdup --\n");
-// 	// errno = 0;
-// 	// char *duplicated_str = ft_strdup("hello world");
-// 	// if (duplicated_str)
-// 	// 	printf("%p : %s, errno : %d\n", duplicated_str, duplicated_str, errno);
-// 	// else
-// 	// 	printf("%p, errno : %d\n", duplicated_str, errno);
-//     return 0;
-// }
