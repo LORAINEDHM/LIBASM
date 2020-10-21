@@ -1,11 +1,17 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-#include <fcntl.h>
-#include "libasm.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lduhamel <lduhamel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/21 16:35:03 by lduhamel          #+#    #+#             */
+/*   Updated: 2020/10/21 16:35:05 by lduhamel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "libasm.h"
+#include <stdio.h>
 
 int main()
 {
