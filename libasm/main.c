@@ -12,9 +12,9 @@ int main()
     char *src;
 	char *dest;
 	int ret;
-	// int  fd;
-	// int  ret_read;
-	// int ret_ft_read;
+	int  fd;
+	int  ret_read;
+	int ret_ft_read;
 
 	printf("\n\n   *************\n");
     printf("   * ft_strlen *\n");
@@ -52,9 +52,9 @@ tortor, sit amet consequat amet."));
 
 	dest = malloc(20);
 
-	printf("\n\n   *************\n");
-    printf("   * ft_strcpy *\n");
-	printf("   *************\n\n");
+	printf("\n\n*************\n");
+    printf("* ft_strcpy *\n");
+	printf("*************\n\n");
 	
 	dest = strcpy(dest, "");
 	printf("the expected ret:\n");
@@ -71,47 +71,132 @@ tortor, sit amet consequat amet."));
 	printf("dest = %s et src = %s\n", dest, "helloworld");
 	printf("------------------------------------------------------\n\n");
 
+	printf("\n\n*************\n");
+    printf("* ft_strcmp *\n");
+	printf("*************\n\n");
+
+	printf("s1 = %s\n", "aaabaa");
+	printf("s2 = %s\n\n", "aaabaa");
+	printf("the expected ret: %d\n", strcmp("aaabaa", "aaabaa"));
+	printf("my function  ret: %d\n", ft_strcmp("aaabaa", "aaabaa"));
+	printf("------------------------------------------------------\n\n");
+
+		printf("s1 = %s\n", "aa");
+	printf("s2  = %s\n\n", "ab");
+	printf("the expected ret: %d\n", strcmp("aa", "ab"));
+	printf("my function  ret: %d\n", ft_strcmp("aa", "ab"));
+	printf("------------------------------------------------------\n\n");
+
+	printf("s1 = %s\n", "ab");
+	printf("s2  = %s\n\n", "aa");
+	printf("the expected ret: %d\n", strcmp("ab", "aa"));
+	printf("my function  ret: %d\n", ft_strcmp("ab", "aa"));
+	printf("------------------------------------------------------\n\n");
+
+	printf("s1 = %s\n", "ac");
+	printf("s2  = %s\n\n", "aa");
+	printf("the expected ret: %d\n", strcmp("ac", "aa"));
+	printf("my function  ret: %d\n", ft_strcmp("ac", "aa"));
+	printf("------------------------------------------------------\n\n");
+
+	printf("s1 = %s\n", "aa");
+	printf("s2  = %s\n\n", "aaabaa");
+	printf("the expected ret: %d\n", strcmp("aa", "aaabaa"));
+	printf("my function  ret: %d\n", ft_strcmp("aa", "aaabaa"));
+	printf("------------------------------------------------------\n\n");
 
 
-	printf("\n\n   *************\n");
-    printf("   * ft_strcmp *\n");
-	printf("   *************\n\n");
+	printf("\n\n************\n");
+    printf("* ft_write *\n");
+	printf("************\n\n");
 
-	dest = strcpy(dest, "");
 	printf("the expected ret:\n");
-	printf("dest = %s et src = %s\n\n", dest, "");
-	dest = ft_strcpy(dest, "");
+	errno = 0;
+	printf("write : %ld\n", write(1, "hello!\n", 7));
+	printf("errno : %d\n", errno);
 	printf("my function ret:\n");
-	printf("dest = %s et src = %s\n", dest, "");
+	errno = 0;
+	printf("ft_write : %ld\n", ft_write(1, "hello!\n", 7));
+	printf("errno : %d\n", errno);
+	printf("------------------------------------------------------\n\n");
+	printf("the expected ret:\n");
+	errno = 0;
+	printf("write : %ld\n", write(1, "hello!\n", 0));
+	printf("errno : %d\n", errno);
+	printf("my function ret:\n");
+	errno = 0;
+	printf("ft_write : %ld\n", ft_write(1, "hello!\n", 0));
+	printf("errno : %d\n", errno);
+	printf("------------------------------------------------------\n\n");
+		printf("the expected ret:\n");
+	errno = 0;
+	printf("write : %ld\n", write(1, NULL, 7));
+	printf("errno : %d\n", errno);
+	printf("my function ret:\n");
+	errno = 0;
+	printf("ft_write : %ld\n", ft_write(1, NULL, 7));
+	printf("errno : %d\n", errno);
+	printf("------------------------------------------------------\n\n");
+	printf("the expected ret:\n");
+	errno = 0;
+	printf("write : %ld\n", write(-1, "hello!\n", 7));
+	printf("errno : %d\n", errno);
+	printf("my function ret:\n");
+	errno = 0;
+	printf("ft_write : %ld\n", ft_write(-1, "hello!\n", 7));
+	printf("errno : %d\n", errno);
+	printf("------------------------------------------------------\n\n");
+
+	printf("\n\n***********\n");
+    printf("* ft_read *\n");
+	printf("***********\n\n");
+	
+	fd = open("./Makefile", O_RDONLY);
+	errno = 0;
+	printf("the expected ret: %zd\n", read(fd, src, 18));
+	printf("the expected buf: %s\n", src);
+	printf("errno : %d\n", errno);
+	close(fd);
+	fd = open("./Makefile", O_RDONLY);
+	errno = 0;
+	printf("my function ret: %zd\n", read(fd, src, 18));
+	printf("my function buf: %s\n", src);
+	printf("errno : %d\n", errno);
+	close(fd);
+	printf("------------------------------------------------------\n\n");
+	fd = -1;
+	errno = 0;
+	printf("the expected ret: %zd\n", read(fd, src, 18));
+	printf("the expected buf: %s\n", src);
+	printf("errno : %d\n", errno);
+	errno = 0;
+	printf("my function ret: %zd\n", read(fd, src, 18));
+	printf("my function buf: %s\n", src);
+	printf("errno : %d\n", errno);
 	printf("------------------------------------------------------\n\n");
 
 
 
 
-	printf("\n\n   ************\n");
-    printf("   * ft_write *\n");
-	printf("   ************\n\n");
+	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
+	// fd = open("./Makefileqsdf", O_RDONLY);
+	// errno = 0;
+	// ret_read = read(fd, src, 18);
+	// close(fd);
+	// printf("read : %s, ret : %d, errno : %d\n", src, ret_read, errno);
+	// fd = open("./Makefileqsdf", O_RDONLY);
+	// errno = 0;
+	// ret_ft_read = ft_read(fd, dest, 18);
+	// close(fd);
+	// printf("ft_read : %s, ret : %d, errno : %d\n", dest, ret_ft_read, errno);
 
 
-	printf("\n\n   ***********\n");
-    printf("   * ft_read *\n");
-	printf("   ***********\n\n");
 
 
-	printf("\n\n   *************\n")
-    printf("   * ft_strdup *\n");
-	printf("   *************\n\n");
 
-	//printf("\n-- ft_strdup --\n");
-	//printf("before :\n\tsrc : %s, dest : %s\n", src, dest);
-	//ret = ft_strdup(src);
-	//printf("ret : %s\n", ret);
-
-	//printf("ret = %d\n", ft_strcmp("bonjour", "onjour"));
-	//FT_WRITE_EXPECT_ERROR(42, "bonjour", 7);
-	//FT_WRITE_EXPECT_ERROR(9809, "bonjour", 7);
-	//FT_WRITE_EXPECT_ERROR(98123, "", 1);
-	//FT_WRITE_EXPECT_ERROR(42, NULL, 7);
+	printf("\n\n*************\n");
+    printf("* ft_strdup *\n");
+	printf("*************\n\n");
 
     return (0);
 }
@@ -128,63 +213,7 @@ tortor, sit amet consequat amet."));
 
 // 	src = "simon";
 // 	dest = malloc(19);
-// 	// memcpy(src, "hello world", 12);
-// 	// memcpy(dest, "bonan tagon mondo", 18);
 
-// 	// printf("\n-- ft_strlen --\n");
-// 	// printf("\"test\" : %ld\n", ft_strlen("test"));
-// 	// printf("\"testqsfndkjq\" : %ld\n", ft_strlen("testqsfndkjq"));
-// 	// printf("\"dfvsxwvwestqsfndkjq\" : %ld\n", ft_strlen("dfvsxwvwestqsfndkjq"));
-
-// 	// printf("\n-- ft_strcpy --\n");
-// 	// printf("before :\n\tsrc : %s, dest : %s\n", src, dest);
-// 	// ret = ft_strcpy(dest, src);
-// 	// printf("after :\n\tsrc : %s, dest : %s\nret : %s\n", src, dest, ret);
-
-// 	// printf("\n-- ft_strcmp --\n");
-// 	// printf("ret : %d\n",strcmp("aaa","aba"));
-// 	// printf("ret : %d\n",strcmp("aa","aca"));
-// 	// printf("ret : %d\n",strcmp("aaa","aaaa"));
-// 	// printf("ret : %d\n",strcmp("aba","aaa"));
-// 	// printf("ret 5: %d\n\n",strcmp("aca","aaa"));
-
-// 	// printf("ret : %d\n",ft_strcmp("aaa","aba"));
-// 	// printf("ret : %d\n",ft_strcmp("aaa","aca"));
-// 	// printf("ret : %d\n",ft_strcmp("aaa","aaaa"));
-// 	// printf("ret : %d\n",ft_strcmp("aba","aaa"));
-// 	// printf("ret 5: %d\n\n",ft_strcmp("aca","aaa"));
-
-// 	// char *ms1 = "hello";
-// 	// char *ms2 = "wello";
-
-// 	// dest = "hcello";
-// 	// src = "haello";
-// 	// dest[0] = 'w';
-// 	// printf("ret : %d\n", ft_strcmp(src, dest));
-// 	// printf("org : %d\n", strcmp(src, dest));
-
-// 	// printf("ret : %d\n", ft_strcmp("hello", "hello"));
-// 	// printf("org : %d\n", strcmp("hello", "hello"));
-
-// 	// printf("ret : %d\n", ft_strcmp("helfo", "hello"));
-// 	// printf("org : %d\n", strcmp("helfo", "hello"));
-
-// 	// printf("ret : %d\n", ft_strcmp("hello", "helfo"));
-// 	// printf("org : %d\n", strcmp("hello", "helfo"));
-
-// 	// printf("ret : %d\n", ft_strcmp("hell", "hello"));
-// 	// printf("org : %d\n", strcmp("hell", "hello"));
-
-// 	// printf("ret : %d\n", ft_strcmp("hello", "hell"));
-// 	// printf("org : %d\n", strcmp("hello", "hell"));
-
-// 	printf("\n-- ft_write --\n");
-// 	errno = 0;
-// 	printf("write : %ld", write(1, "hello!\n", 7));
-// 	printf(", errno : %d\n", errno);
-// 	errno = 0;
-// 	printf("ft_write : %ld", ft_write(1, "hello!\n", 7));
-// 	printf(", errno : %d\n", errno);
 
 // 	// printf("\n-- ft_read --\n");
 // 	// fd = open("./Makefile", O_RDONLY);
